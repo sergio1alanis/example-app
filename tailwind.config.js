@@ -19,3 +19,14 @@ export default {
 
     plugins: [forms],
 };
+
+//  esta parte la agregue por code chat, no se si funcione
+module.exports = {
+    mode: 'jit',
+    purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+    theme: {
+        extend: {},
+    },
+    variants: {},
+    plugins: [],
+}

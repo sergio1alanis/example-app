@@ -19,10 +19,18 @@ Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::controller(PageController::class)->group(function(){
     Route::get('/', 'home')->name('home');
 
-    Route::get('/blog', 'blog')->name('blog');
+    // Route::get('/blog', 'blog')->name('blog');
 
     Route::get('blog/{post:slug}', 'post')->name('post');
 });
+
+/*    Alternativo  clave #1
+Route::redirect('dashboard', 'posts')->name('dashboard');
+
+Route::resource('posts', PostController::class)->middleware(['auth'])->except(['show']);
+
+require __DIR__.'/auth.php';  */
+
 
 
 /* con esta Route se pasa un parametro en el navegador y lo regresa
@@ -45,6 +53,7 @@ Route::get('buscar', function (Request $request) {
 
 
 // AL instalar Breeze  se agregan automaticamente estas lineas
+//  alternativo clave #1
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -58,4 +67,4 @@ Route::middleware('auth')->group(function () {
 //Importar un controlador que se va a utilizar
 Route::resource('posts', PostController::class)->except(['show']);
 
-require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';  
