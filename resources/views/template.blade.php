@@ -9,6 +9,15 @@
     <p>
         <a href="{{ route('home')}}">Home</a>
         <a href="{{ route('blog')}}">Blog</a>
+
+        <!-- La siguiente directiva verifica si esta iniciada la sesion
+         y funciona como un if else -->
+         @auth
+        <a href="{{ route('dashboard')}}">Dashboard</a>
+         @else
+         <a href="{{ route('login')}}">Login</a>
+         @endauth
+    
     </p>
     <hr>
 
